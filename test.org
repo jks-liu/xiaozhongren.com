@@ -1,0 +1,92 @@
+#+DATE: [2012-10-02 Tue 21:06]
+#+OPTIONS: toc:t num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: Uncategorized
+#+TAGS:
+#+DESCRIPTION:
+#+POSTID: 1
+#+TITLE: 测试
+
+License: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
+
+* 公式测试：
+** 例子 
+   $E = mc^2$
+
+** 使用方法
+   - C-c C-x C-l :: 公式预览
+
+   wordpress上要装WP \(\LaTeX\)插件。
+
+* 代码测试
+** 例子
+   #+begin_src c++
+     #include <iostream>
+     using namespace std;
+     
+     int main(int argc, char *argv[])
+     {
+         cout << "I love xiaozhongren.com!" << endl;
+         return 0;
+     }    
+   #+end_src
+
+** 使用方法
+   - <s ::  自动展开 
+   - C-c ' :: 代码编写
+
+* 表格测试
+** 例子
+   | 作用                             | 快捷键 | 命令                                    |
+   |----------------------------------+--------+-----------------------------------------|
+   | 发布当前buffer                   | C-c p  | org2blog/wp-post-buffer                 |
+   | 以草稿形式发布当前buffer         | C-c d  | org2blog/wp-post-buffer                 |
+   | 发布当前buffer作为页面           | C-c P  | org2blog/wp-post-buffer-as-page         |
+   | 以草稿形式发布当前buffer作为页面 | C-c D  | C-u M-x org2blog/wp-post-buffer-as-page |
+
+* Ditaa测试
+** 例子
+   #+begin_src ditaa :file ./ditaa-png-pictures/ditaa-test.png :cmdline -r -s 0.8
+                         +----------+
+                         |          |
+               +---------+  master  +<-----+         
+               |         |          |      |
+               |         +----------+      |
+               |                           |
+               v                    +----------+
+     +---------+------------+       |          |
+     | release-xiaozhongren |       |  develop |
+     +----------------------+       +----------+
+   #+end_src
+
+   #+results:
+   [[file:./ditaa-png-pictures/ditaa-test.png]]
+
+** 使用方法
+   - C-c C-c :: 生成图片
+   - C-c C-x C-v :: 显示（关闭显示）图片
+
+* Graphviz测试
+** 例子
+   #+begin_src dot :file dot-svg-pictures/dot-test.svg :cmdline -Kdot -Tsvg
+     digraph dot_test {
+         size = "8, 6";
+     
+         master -> release_xiaozhongren;
+         develop -> master[headport = se];
+         master -> develop[taipport = sw];
+     
+         Author[shape = plaintext, label = "jks Liu\n02-Oct-2012"];
+         master[shape = box, label = "主分支: master\n包括.org .html和.pdf文件\n保存此分支到GitHub上"];
+         release_xiaozhongren[shape = box, label = "发布分支: release-xiaozhongren\n删除POSTID"];
+         develop[shape = box, label = "开发分支: develop\n#+POSTID = 1\n删除所以临时文件\n生成html和pdf"];
+     }     
+   #+end_src
+
+   #+results:
+   [[file:dot-svg-pictures/dot-test.svg]]
+
+** 使用方法
+   wordpress需安装Scalable Vector Graphics (SVG)插件。
+
+#+./ditaa-png-pictures/ditaa-test.png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-ditaa-test.png
+#+dot-svg-pictures/dot-test.svg http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-dot-test.svg

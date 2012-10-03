@@ -1,0 +1,13 @@
+#+TITLE: xiaozhongren.com
+
+* Introduction
+  I write my blog on my classmate Bob shi's website which names [[http://www.xiaozhongren.com/][XIAOZHONGREN(means SMALL CROWD)]].
+
+  I write my blog with emacs [[http://orgmode.org/][org-mode]], and publish it to wordpress with [[https://github.com/punchagan/org2blog][org2blog]].
+
+* License
+
+  Except where otherwise noted, content on this repository(including text, pictures and code) is licensed under a [[http://creativecommons.org/licenses/by-nc-sa/3.0/][Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License]].
+
+  Source code in content is also licensed under GNU GPLv3 and GNU FDLv1.3.
+  
