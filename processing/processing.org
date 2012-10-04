@@ -1,0 +1,242 @@
+#+POSTID: 1
+#+DATE: [2012-07-29 Sun 20:37]
+#+OPTIONS: toc:2 num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: processing
+#+TAGS: processing
+#+DESCRIPTION:
+#+TITLE: Processing ABC (Chinese)
+
+- Author :: JKS Liu
+- Lincense :: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
+
+文章被托管在：https://github.com/jks-liu/xiaozhongren.com
+
+* 前言
+  本节为介绍性的内容，可以选择性跳过。
+
+  以前写过一些关于[[http://www.processing.org/][processing]] 文章， 用的是[[http://www.libreoffice.org/][libreoffice]]。所以， 今天打算用emacs的[[http://orgmode.org/][org-mode]] （遇到不懂的名词请直接[[https://www.google.com/][google]] 之，我就不解释了，下同）重写一下。当然， 重写不是照抄。顺便把博客搬到从新浪搬到[[http://wordpress.com/][wordpress]] , 这是为了方便用[[https://github.com/punchagan/org2blog/][org2blog]] 插件。
+
+  把以前写的那个前言稍稍修改一下： 
+
+  #+BEGIN_QUOTE
+  前两天看arduino（这个以后再说）的时候偶然发现了processing，  然后感叹原来还可以有这么强大的东西，就像当年在数学学Taylor定理一样。
+
+  processing是一个用来写图形界面的IDE。 它是对Java的封装（这个封装可不是MFC对Win API的那种，以后你就会知道）。我觉得这种高度的封装让个人编写华丽的图形程序变得可能。并且由于使用特别简单，所以对于那些文科的学生，艺术生，以及其他对c或Java不了解的学生特别有用。
+ 
+  记得几个月之前我还为在Ubuntu下如何写一个串口程序纠结，而processing就自带serial，并且它还是跨平台的（Windows，Linux，Mac）。并且它还是开源的，拥有超过100个library，这些library支持但不限于opengl，视频音频图片，pdf，opencv，高等数学，网络。
+  #+END_QUOTE
+
+* 入门
+  本人目前的配置是Ubuntu 12.04LST, Processing 2.0a6. 如果你在其他配置下有任何问题， 请直接在本页留言， 或通过你知道的任何其他可以联系我的方法联系我。
+** 下载程序
+   程序下载请点[[http://www.processing.org/download/][这里]], 选择合适你机器的版本， 下载后你会得到一个压缩包。 无需（本人需须不分， 自行判断， 下同）安装， 解压到你喜欢的目录， 直接运行。
+** 一个简单的例子
+  1. 双击processing程序。
+  2. 先键入如下代码吧（//及之后内容可以不写，为注释，可以直接复制粘贴，但建议自己敲一遍）。
+
+     #+begin_src java
+       // routine1.1
+       size(640, 480);
+       line(100, 100, 400, 400);
+     #+end_src
+
+     没错， 只要998， 只要两行就OK了。
+
+  3. 点击sketch->run OR 点击左上角带圆圈的三角 OR C-r（C指Ctrl键），这时你就会看到一个窗口加一条直线。
+
+** 简要说明
+   注意：逗号等所有符号要用西文哟，每行后面的分号也是必须的哟。\\
+   上面一个单词叫一对括号的，我们称之为函数，括号中用逗号分开的我们叫做参数（函数参数）.本例中用了 =size()= 和 =line()= 两个函数。
+
+   + =size(width, height)= :: 指定了窗口的大小，两个参数分别是宽和高。
+   + =line(x0, y0, x1, y1)= :: 函数画了一条直线，四个参数分别是第0点（我喜欢从0开始计数）的横纵坐标，第1点的横纵坐标。（横坐标由0开始计数有左向右，纵坐标由0开始有上向下，所以本例程中窗口的坐标是从（0，0）到（639， 479））。从今以后我都默认从0计数喽，希望你会习惯。
+
+   好了，这就入门教程了，简单吧，哈哈。
+
+* 简单图形(Shape)
+** =arc(x, y, width, height, start, stop)=
+  1. 在窗口中输入下面两句：
+     
+     #+begin_src java
+       size(200, 200);
+       arc(100, 100, 200, 100, PI, PI * 3 / 2);  
+     #+end_src  
+     
+  2. C-r 你会得到如下图形:\\
+     [[./pic/2012-07-30 18:12:54.png]]
+
+  =arc()= 函数共有六个参数, 分别是椭圆弧的中心坐标, 横向和纵向 /长轴长/ (亲, +不是半长轴呦+), 开始角度和终止角度(/弧度/, /顺时针/).
+
+  =PI= 为一个常数, 即圆周率， 精确到小数点后20位。
+  
+ 
+** =ellipse(x, y, width, height)=
+   1. 输入：
+      
+      #+begin_src java
+        size(200, 200);
+        ellipse(100, 100, 200, 100);
+      #+end_src
+      
+   2. C-r\\
+      [[./pic/2012-07-30 18:56:34.png]]
+      
+   显然 =ellipse()= 就是没有起始和终止角的 =arc()= 函数.
+
+** More
+   - =line(x0, y0, x1, y1)= ::
+     这个简单， 我就不讲了。
+   - =point(x, y)= ::
+     这个也简单，  不过要看到它可要睁大眼睛。
+   - =quad(x0, y0, x1, y1, x2, y2, x3, y3)= ::
+     这个函数就是画一个四边形。
+   - =rect(x, y, width, height)= ::
+     这个就是一个长方形, x, y是左上角的坐标, =width=, =height= 显然是宽度和高度。
+   - =triangle(x0, y0, x1, y1, x2, y2)= ::
+     和quad类似, 只不过是三角形, 当然也就只有六个参数。
+     
+   上面这些都是比较基础的, 还有比如贝塞尔曲线之类的函数, 可以参考[[http://www.processing.org/reference/][官方文档]], 当然， 是E文。
+   这些函数以后我会再讲, 当然, 也许我会忘了或其它什么, 就不讲了。
+
+* 原始数据类型(Primitive)
+** 温故而知新
+     - 首先, 复习一下:
+
+       #+begin_src java
+         size(640, 480);
+         ellipse(100, 200, 50, 25);     
+       #+end_src
+     
+     - 然后， 试试下面的代码：
+   
+       #+begin_src java
+         int x = 100;
+         int y = 200;
+         size(640, 480);
+         ellipse(x, y, 50, 25);
+       #+end_src
+  
+     你是不是发现了： 上面两个的运行结果是一样的。
+** 变量基础知识
+   =int x = 100;= 这一句就是定义了一个 =int= 型变量x, 并给x付初值 =100=. 同理y. \\
+   这样就好理解 =ellipse(x, y, 50, 25);= 这一句了.
+   
+   所有的变量都相上面那样 /先定义, 再使用/ 。
+
+** 变量的赋值
+   - 既然叫她变量, 当然她是可以改变的.如:
+
+     #+begin_src java
+       int x = 100;
+       int y = 200;
+       size(640, 480);
+       ellipse(x, y, 50, 25);
+       x = 200;
+       y = 100;
+       ellipse(x, y, 50, 25);
+     #+end_src
+     
+   - 当然, 定义是不必指定一个初值, 但我建议这么着. 并且, 在使用之前一定要先赋值, 没有赋值就使用是很危险的， 如：
+
+     #+begin_src java
+       // 这是一个错误的例子
+       // 由于变量x和y在使用之前没有赋值， 所以运行会得到不确定的结果， 或根本无法运行
+       int x;
+       int y;
+       size(640, 480);
+       ellipse(x, y, 50, 25);
+     #+end_src
+     
+     没有初始化变量的错误信息： \\
+     [[./pic/2012-07-30 19:58:44 error: uninitialized variable.png]]
+
+** 常用数据类型
+   | 名字    | 类型           | 值域                                                    | 字节数 |
+   |---------+----------------+---------------------------------------------------------+--------|
+   | boolean | Boolean        | true or false                                           | =1=    |
+   | byte    | Integer        | 127 to -128                                             | =1=    |
+   | char    | Character      | any character                                           | =2=    |
+   | color   | Number         | any color value                                         | =4=    |
+   | double  | Floating-point | INVALID(in processing double == float)                  | =8=    |
+   | float   | Floating-point | 3.40282347E+38 to -3.40282347E+38                       | =4=    |
+   | int     | Integer        | 2,147,283,647 to -2,147,483,648                         | =4=    |
+   | long    | Integer        | 9,223,372,036,854,775,807 to -9,223,372,036,854,775,808 | =8=    |
+# 表格中的数值（右对齐的数据）， 在wordpress中好像无法正常显示
+
+* 一个完整的示例
+  以上所讲的就像是学英语时学单词一样， 下面， 就要学习完整的的句子了。
+
+  Processing 包含两个最基本的函数 =setup() & draw()= ，以后，我们几乎每个程序都要用到这两个函数。
+
+** =setup()= 与 =draw()=
+   
+   - =setup()=
+     试着运行下面的代码：
+     #+begin_src java
+       void setup()
+       {
+           size(640, 480);
+           println(5);
+       }
+     #+end_src
+     
+     运行上面这个程序，你会发现你的控制台（console area， 就是你写代码区域下面的黑色区域）显示了 /一个5/ ，如下图所示，函数 =println()= 的功能显而易见，我就不说了。 （如果想更深入地了解各个函数，或者发现自己需要的其他函数，可以访问官方的[[http://www.processing.org/reference/][文档]] 。 
+     
+     [[./pic/2012-07-31 11:52:25 setup().png]]
+
+# <<method draw>>   
+   - =draw()=
+     下面，我们把setup() 改为 draw(), 如下，看到不一样了了吧，你的控制台中会显示 /好多个5/ 。     
+
+     #+begin_src java 
+       void draw()
+       {
+           size (640, 480);
+           println (5);
+       }
+     #+end_src
+     
+     运行结果: \\
+     [[./pic/2012-07-31 11:53:16 draw().png]]
+
+** =setup()= 和 =draw()=
+   我们可以发现， 在上面那个[[method draw()][ =draw()= 的例子中]] ，  =size()= 函数没有起什么作用。于是凭借着好奇心和求知欲（要是拿这个参加当年的江苏高考不晓得会得几分），我打开官方文档。 里面有这样一段话： 
+
+   #+begin_quote
+   The size() function must be the first line in setup(). If size() is not called, the default size of the window is 100x100 pixels.
+
+   摘自 [[http://www.processing.org/reference/size_.html]]
+   #+end_quote
+
+   大概意思就是说： 函数 =size()= 只能放在函数 =setup()= 里的第一行。 于是我们有了下面这个终极版本：
+
+   - 
+     #+begin_src java
+       void setup ()
+       {
+           size (640, 480);
+       }
+         
+       void draw ()
+       {
+           println (5);
+       }
+     #+end_src
+     
+   显然， 整个程序的流程是 =setup()= 执行一次， 然后无限次循环执行 =draw()= , 直到
+   #+begin_quote
+   山无陵 \\
+   江水为竭 \\
+   冬雷震震 \\
+   夏雨雪 \\
+   天地合 \\
+   。   
+   #+end_quote
+   
+
+
+#+./pic/2012-07-30 18:12:54.png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-2012-07-30-181254.png
+#+./pic/2012-07-30 18:56:34.png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-2012-07-30-185634.png
+#+./pic/2012-07-30 19:58:44 error: uninitialized variable.png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-2012-07-30-195844-error-uninitialized-variable2.png
+#+./pic/2012-07-31 11:52:25 setup().png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-2012-07-31-115225-setup.png
+#+./pic/2012-07-31 11:53:16 draw().png http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-2012-07-31-115316-draw.png

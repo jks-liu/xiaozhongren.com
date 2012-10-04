@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>processing教程</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="processing教程"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="[2012-07-29 Sun 20:37]"/>
+<meta name="author" content="JKS LIU"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">processing教程</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 前言</a></li>
+<li><a href="#sec-2">2 入门</a>
+<ul>
+<li><a href="#sec-2-1">2.1 下载程序</a></li>
+<li><a href="#sec-2-2">2.2 一个简单的例子</a></li>
+<li><a href="#sec-2-3">2.3 简要说明</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 简单图形(Shape)</a>
+<ul>
+<li><a href="#sec-3-1">3.1 <code>arc(x, y, width, height, start, stop)</code></a></li>
+<li><a href="#sec-3-2">3.2 <code>ellipse(x, y, width, height)</code></a></li>
+<li><a href="#sec-3-3">3.3 More</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 原始数据类型(Primitive)</a>
+<ul>
+<li><a href="#sec-4-1">4.1 温故而知新</a></li>
+<li><a href="#sec-4-2">4.2 变量基础知识</a></li>
+<li><a href="#sec-4-3">4.3 变量的赋值</a></li>
+<li><a href="#sec-4-4">4.4 常用数据类型</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 一个完整的示例</a>
+<ul>
+<li><a href="#sec-5-1">5.1 <code>setup()</code> 与 <code>draw()</code></a></li>
+<li><a href="#sec-5-2">5.2 <code>setup()</code> 和 <code>draw()</code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 前言</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>  本节为介绍性的内容，可以选择性跳过。
+</p>
+<p>
+  以前写过一些关于<a href="http://www.processing.org/">processing</a> 文章， 用的是<a href="http://www.libreoffice.org/">libreoffice</a>。所以， 今天打算用emacs的<a href="http://orgmode.org/">org-mode</a> （遇到不懂的名词请直接<a href="https://www.google.com/">google</a> 之，我就不解释了，下同）重写一下。当然， 重写不是照抄。顺便把博客搬到从新浪搬到<a href="http://wordpress.com/">wordpress</a> , 这是为了方便用<a href="https://github.com/punchagan/org2blog/">org2blog</a> 插件。
+</p>
+<p>
+  把以前写的那个前言稍稍修改一下： 
+</p>
+<blockquote>
+
+<p>前两天看arduino（这个以后再说）的时候偶然发现了processing，  然后感叹原来还可以有这么强大的东西，就像当年在数学学Taylor定理一样。
+</p>
+<p>
+processing是一个用来写图形界面的IDE。 它是对Java的封装（这个封装可不是MFC对Win API的那种，以后你就会知道）。我觉得这种高度的封装让个人编写华丽的图形程序变得可能。并且由于使用特别简单，所以对于那些文科的学生，艺术生，以及其他对c或Java不了解的学生特别有用。
+</p>
+<p> 
+记得几个月之前我还为在Ubuntu下如何写一个串口程序纠结，而processing就自带serial，并且它还是跨平台的（Windows，Linux，Mac）。并且它还是开源的，拥有超过100个library，这些library支持但不限于opengl，视频音频图片，pdf，opencv，高等数学，网络。
+</p>
+</blockquote>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 入门</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>  本人目前的配置是Ubuntu 12.04LST, Processing 2.0a6. 如果你在其他配置下有任何问题， 请直接在本页留言， 或通过你知道的任何其他可以联系我的方法联系我。
+</p>
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 下载程序</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>   程序下载请点<a href="http://www.processing.org/download/">这里</a>, 选择合适你机器的版本， 下载后你会得到一个压缩包。 无需（本人需须不分， 自行判断， 下同）安装， 解压到你喜欢的目录， 直接运行。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 一个简单的例子</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ol>
+<li>双击processing程序。
+</li>
+<li>先键入如下代码吧（//及之后内容可以不写，为注释，可以直接复制粘贴，但建议自己敲一遍）。
+
+
+
+
+<pre class="src src-java"><span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">routine1.1</span>
+size(640, 480);
+line(100, 100, 400, 400);
+</pre>
+
+
+<p>
+     没错， 只要998， 只要两行就OK了。
+</p>
+</li>
+<li>点击sketch-&gt;run OR 点击左上角带圆圈的三角 OR C-r（C指Ctrl键），这时你就会看到一个窗口加一条直线。
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 简要说明</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<p>   注意：逗号等所有符号要用西文哟，每行后面的分号也是必须的哟。<br/>
+   上面一个单词叫一对括号的，我们称之为函数，括号中用逗号分开的我们叫做参数（函数参数）.本例中用了 <code>size()</code> 和 <code>line()</code> 两个函数。
+</p>
+<dl>
+<dt><code>size(width, height)</code></dt><dd>指定了窗口的大小，两个参数分别是宽和高。
+</dd>
+<dt><code>line(x0, y0, x1, y1)</code></dt><dd>函数画了一条直线，四个参数分别是第0点（我喜欢从0开始计数）的横纵坐标，第1点的横纵坐标。（横坐标由0开始计数有左向右，纵坐标由0开始有上向下，所以本例程中窗口的坐标是从（0，0）到（639， 479））。从今以后我都默认从0计数喽，希望你会习惯。
+</dd>
+</dl>
+
+
+<p>
+   好了，这就入门教程了，简单吧，哈哈。
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 简单图形(Shape)</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <code>arc(x, y, width, height, start, stop)</code></h3>
+<div class="outline-text-3" id="text-3-1">
+
+<ol>
+<li>在窗口中输入下面两句：
+
+
+
+
+<pre class="src src-java">size(200, 200);
+arc(100, 100, 200, 100, PI, PI * 3 / 2);  
+</pre>
+
+
+</li>
+<li>C-r 你会得到如下图形:<br/>
+     <img src="./pic/2012-07-30 18:12:54.png"  alt="./pic/2012-07-30 18:12:54.png" />
+</li>
+</ol>
+
+
+<p>
+  <code>arc()</code> 函数共有六个参数, 分别是椭圆弧的中心坐标, 横向和纵向 <i>长轴长</i> (亲, <del>不是半长轴呦</del>), 开始角度和终止角度(<i>弧度</i>, <i>顺时针</i>).
+</p>
+<p>
+  <code>PI</code> 为一个常数, 即圆周率， 精确到小数点后20位。
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> <code>ellipse(x, y, width, height)</code></h3>
+<div class="outline-text-3" id="text-3-2">
+
+<ol>
+<li>输入：
+
+
+
+
+<pre class="src src-java">size(200, 200);
+ellipse(100, 100, 200, 100);
+</pre>
+
+
+</li>
+<li>C-r<br/>
+      <img src="./pic/2012-07-30 18:56:34.png"  alt="./pic/2012-07-30 18:56:34.png" />
+</li>
+</ol>
+
+
+<p>      
+   显然 <code>ellipse()</code> 就是没有起始和终止角的 <code>arc()</code> 函数.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> More</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<dl>
+<dt><code>line(x0, y0, x1, y1)</code></dt><dd>
+<p>
+     这个简单， 我就不讲了。
+</p></dd>
+<dt><code>point(x, y)</code></dt><dd>
+<p>
+     这个也简单，  不过要看到它可要睁大眼睛。
+</p></dd>
+<dt><code>quad(x0, y0, x1, y1, x2, y2, x3, y3)</code></dt><dd>
+<p>
+     这个函数就是画一个四边形。
+</p></dd>
+<dt><code>rect(x, y, width, height)</code></dt><dd>
+<p>
+     这个就是一个长方形, x, y是左上角的坐标, <code>width</code>, <code>height</code> 显然是宽度和高度。
+</p></dd>
+<dt><code>triangle(x0, y0, x1, y1, x2, y2)</code></dt><dd>
+<p>
+     和quad类似, 只不过是三角形, 当然也就只有六个参数。
+</p></dd>
+</dl>
+
+
+<p>     
+   上面这些都是比较基础的, 还有比如贝塞尔曲线之类的函数, 可以参考<a href="http://www.processing.org/reference/">官方文档</a>, 当然， 是E文。
+   这些函数以后我会再讲, 当然, 也许我会忘了或其它什么, 就不讲了。
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 原始数据类型(Primitive)</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 温故而知新</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<ul>
+<li>首先, 复习一下:
+
+
+
+
+<pre class="src src-java">size(640, 480);
+ellipse(100, 200, 50, 25);     
+</pre>
+
+
+</li>
+<li>然后， 试试下面的代码：
+
+
+
+
+<pre class="src src-java"><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">x</span> = 100;
+<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">y</span> = 200;
+size(640, 480);
+ellipse(x, y, 50, 25);
+</pre>
+
+</li>
+</ul>
+
+
+<p>  
+     你是不是发现了： 上面两个的运行结果是一样的。
+</p></div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 变量基础知识</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<p>   <code>int x = 100;</code> 这一句就是定义了一个 <code>int</code> 型变量x, 并给x付初值 <code>100</code>. 同理y. <br/>
+   这样就好理解 <code>ellipse(x, y, 50, 25);</code> 这一句了.
+</p>
+<p>   
+   所有的变量都相上面那样 <i>先定义, 再使用</i> 。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 变量的赋值</h3>
+<div class="outline-text-3" id="text-4-3">
+
+<ul>
+<li>既然叫她变量, 当然她是可以改变的.如:
+
+
+
+
+<pre class="src src-java"><span style="color: #98fb98;">int</span> <span style="color: #eedd82;">x</span> = 100;
+<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">y</span> = 200;
+size(640, 480);
+ellipse(x, y, 50, 25);
+x = 200;
+y = 100;
+ellipse(x, y, 50, 25);
+</pre>
+
+
+</li>
+<li>当然, 定义是不必指定一个初值, 但我建议这么着. 并且, 在使用之前一定要先赋值, 没有赋值就使用是很危险的， 如：
+
+
+
+
+<pre class="src src-java"><span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">&#36825;&#26159;&#19968;&#20010;&#38169;&#35823;&#30340;&#20363;&#23376;</span>
+<span style="color: #ff7f24;">// </span><span style="color: #ff7f24;">&#30001;&#20110;&#21464;&#37327;x&#21644;y&#22312;&#20351;&#29992;&#20043;&#21069;&#27809;&#26377;&#36171;&#20540;&#65292; &#25152;&#20197;&#36816;&#34892;&#20250;&#24471;&#21040;&#19981;&#30830;&#23450;&#30340;&#32467;&#26524;&#65292; &#25110;&#26681;&#26412;&#26080;&#27861;&#36816;&#34892;</span>
+<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">x</span>;
+<span style="color: #98fb98;">int</span> <span style="color: #eedd82;">y</span>;
+size(640, 480);
+ellipse(x, y, 50, 25);
+</pre>
+
+
+<p>     
+     没有初始化变量的错误信息： <br/>
+     <img src="./pic/2012-07-30 19:58:44 error: uninitialized variable.png"  alt="./pic/2012-07-30 19:58:44 error: uninitialized variable.png" />
+</p></li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 常用数据类型</h3>
+<div class="outline-text-3" id="text-4-4">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">名字</th><th scope="col" class="left">类型</th><th scope="col" class="left">值域</th><th scope="col" class="left">字节数</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">boolean</td><td class="left">Boolean</td><td class="left">true or false</td><td class="left"><code>1</code></td></tr>
+<tr><td class="left">byte</td><td class="left">Integer</td><td class="left">127 to -128</td><td class="left"><code>1</code></td></tr>
+<tr><td class="left">char</td><td class="left">Character</td><td class="left">any character</td><td class="left"><code>2</code></td></tr>
+<tr><td class="left">color</td><td class="left">Number</td><td class="left">any color value</td><td class="left"><code>4</code></td></tr>
+<tr><td class="left">double</td><td class="left">Floating-point</td><td class="left">INVALID(in processing double == float)</td><td class="left"><code>8</code></td></tr>
+<tr><td class="left">float</td><td class="left">Floating-point</td><td class="left">3.40282347E+38 to -3.40282347E+38</td><td class="left"><code>4</code></td></tr>
+<tr><td class="left">int</td><td class="left">Integer</td><td class="left">2,147,283,647 to -2,147,483,648</td><td class="left"><code>4</code></td></tr>
+<tr><td class="left">long</td><td class="left">Integer</td><td class="left">9,223,372,036,854,775,807 to -9,223,372,036,854,775,808</td><td class="left"><code>8</code></td></tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 一个完整的示例</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>  以上所讲的就像是学英语时学单词一样， 下面， 就要学习完整的的句子了。
+</p>
+<p>
+  Processing 包含两个最基本的函数 =setup() &amp; draw()=，以后，我们几乎每个程序都要用到这两个函数。
+</p>
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> <code>setup()</code> 与 <code>draw()</code></h3>
+<div class="outline-text-3" id="text-5-1">
+
+
+<ul>
+<li><code>setup()</code>
+     试着运行下面的代码：
+
+
+
+<pre class="src src-java"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">setup</span>()
+{
+    size(640, 480);
+    println(5);
+}
+</pre>
+
+
+<p>     
+     运行上面这个程序，你会发现你的控制台（console area， 就是你写代码区域下面的黑色区域）显示了 <i>一个5</i> ，如下图所示，函数 <code>println()</code> 的功能显而易见，我就不说了。 （如果想更深入地了解各个函数，或者发现自己需要的其他函数，可以访问官方的<a href="http://www.processing.org/reference/">文档</a> 。 
+</p>
+<p>     
+     <img src="./pic/2012-07-31 11:52:25 setup().png"  alt="./pic/2012-07-31 11:52:25 setup().png" />
+</p></li>
+</ul>
+
+
+<p>
+<a name="method-draw" id="method-draw"></a>
+</p><ul>
+<li><code>draw()</code>
+     下面，我们把setup() 改为 draw(), 如下，看到不一样了了吧，你的控制台中会显示 <i>好多个5</i> 。     
+
+
+
+
+<pre class="src src-java"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">draw</span>()
+{
+    size (640, 480);
+    println (5);
+}
+</pre>
+
+
+<p>     
+     运行结果: <br/>
+     <img src="./pic/2012-07-31 11:53:16 draw().png"  alt="./pic/2012-07-31 11:53:16 draw().png" />
+</p></li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> <code>setup()</code> 和 <code>draw()</code></h3>
+<div class="outline-text-3" id="text-5-2">
+
+<p>   我们可以发现， 在上面那个<a href="#method-draw"> <code>draw()</code> 的例子中</a> ，  <code>size()</code> 函数没有起什么作用。于是凭借着好奇心和求知欲（要是拿这个参加当年的江苏高考不晓得会得几分），我打开官方文档。 里面有这样一段话： 
+</p>
+<blockquote>
+
+<p>The size() function must be the first line in setup(). If size() is not called, the default size of the window is 100x100 pixels.
+</p>
+<p>
+摘自 <a href="http://www.processing.org/reference/size_.html">http://www.processing.org/reference/size_.html</a>
+</p>
+</blockquote>
+
+
+<p>
+   大概意思就是说： 函数 <code>size()</code> 只能放在函数 <code>setup()</code> 里的第一行。 于是我们有了下面这个终极版本：
+</p>
+<ul>
+<li>
+
+
+
+<pre class="src src-java"><span style="color: #98fb98;">void</span> <span style="color: #87cefa;">setup</span> ()
+{
+    size (640, 480);
+}
+
+<span style="color: #98fb98;">void</span> <span style="color: #87cefa;">draw</span> ()
+{
+    println (5);
+}
+</pre>
+
+</li>
+</ul>
+
+
+<p>     
+   显然， 整个程序的流程是 <code>setup()</code> 执行一次， 然后无限次循环执行 <code>draw()</code> , 直到
+</p><blockquote>
+
+<p>山无陵 <br/>
+江水为竭 <br/>
+冬雷震震 <br/>
+夏雨雪 <br/>
+天地合 <br/>
+。   
+</p>
+</blockquote>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: [2012-07-29 Sun 20:37]</p>
+<p class="author">Author: JKS LIU</p>
+<p class="creator">Org version 7.8.02 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
