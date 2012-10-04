@@ -8,6 +8,8 @@
 
 License: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
 
+文章被托管在：https://github.com/jks-liu/xiaozhongren.com
+
 * 公式测试：
 ** 例子 
    $E = mc^2$
@@ -36,12 +38,12 @@ License: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[ht
 
 * 表格测试
 ** 例子
-   | 作用                             | 快捷键 | 命令                                    |
-   |----------------------------------+--------+-----------------------------------------|
-   | 发布当前buffer                   | C-c p  | org2blog/wp-post-buffer                 |
-   | 以草稿形式发布当前buffer         | C-c d  | org2blog/wp-post-buffer                 |
-   | 发布当前buffer作为页面           | C-c P  | org2blog/wp-post-buffer-as-page         |
-   | 以草稿形式发布当前buffer作为页面 | C-c D  | C-u M-x org2blog/wp-post-buffer-as-page |
+   | 作用                             | 快捷键 | 命令                            |
+   |----------------------------------+--------+---------------------------------|
+   | 发布当前buffer                   | C-c p  | org2blog/wp-post-buffer         |
+   | 以草稿形式发布当前buffer         | C-c d  | org2blog/wp-post-buffer         |
+   | 发布当前buffer作为页面           | C-c P  | org2blog/wp-post-buffer-as-page |
+   | 以草稿形式发布当前buffer作为页面 | C-c D  | org2blog/wp-post-buffer-as-page |
 
 * Ditaa测试
 ** 例子
