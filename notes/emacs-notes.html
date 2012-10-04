@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Emacs notes</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Emacs notes"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-08-11"/>
+<meta name="author" content="JKS LIU"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Emacs notes</h1>
+
+<dl>
+<dt>Author</dt><dd>JKS Liu
+</dd>
+<dt>Lincense</dt><dd><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA</a> <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="88x31.png"/></a>
+</dd>
+</dl>
+
+
+<p>
+文章被托管在：<a href="https://github.com/jks-liu/xiaozhongren.com">https://github.com/jks-liu/xiaozhongren.com</a>
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 术语中英对照</a></li>
+<li><a href="#sec-2">2 命令参数</a></li>
+<li><a href="#sec-3">3 一般情况</a>
+<ul>
+<li><a href="#sec-3-1">3.1 快捷键</a></li>
+<li><a href="#sec-3-2">3.2 常用命令</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 <code>compile</code> 编译命令</a>
+<ul>
+<li><a href="#sec-4-1">4.1 快捷键</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 cedet 插件</a>
+<ul>
+<li><a href="#sec-5-1">5.1 快捷键</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 artist-mode 模式</a>
+<ul>
+<li><a href="#sec-6-1">6.1 快捷键</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 术语中英对照</h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>region 区域
+</li>
+<li>buffer 缓冲区
+</li>
+<li>window 窗口
+</li>
+<li>frame 窗格
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 命令参数</h2>
+<div class="outline-text-2" id="text-2">
+
+<dl>
+<dt><code>emacs -nw</code></dt><dd>在字符终端打开
+</dd>
+<dt><code>emacs -q</code></dt><dd>不加载配置文件
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 一般情况</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 快捷键</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">快捷键</th><th scope="col" class="left">描述</th><th scope="col" class="left">命令</th></tr>
+<tr><th scope="col" class="left">Shortcuts</th><th scope="col" class="left">Description</th><th scope="col" class="left">Command</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">C-x 0</td><td class="left">关闭当前窗口</td><td class="left">delete-window</td></tr>
+<tr><td class="left">C-x 1</td><td class="left">仅保留当前窗口</td><td class="left">delete-other-windows</td></tr>
+<tr><td class="left">C-x C-x</td><td class="left">切换mark和point的位置</td><td class="left">exchange-point-and-mark</td></tr>
+<tr><td class="left">C-u C-@</td><td class="left">切换mark ring</td><td class="left"></td></tr>
+<tr><td class="left">C-l</td><td class="left">重新绘制窗口</td><td class="left">recenter-top-bottom</td></tr>
+<tr><td class="left">C-t</td><td class="left">交换point前后的两个字符</td><td class="left">transpose-chars</td></tr>
+<tr><td class="left">M-t</td><td class="left">交换point左右两个单词</td><td class="left">transpose-words</td></tr>
+<tr><td class="left">C-x C-t</td><td class="left">交换本行和上行</td><td class="left">transpose-lines</td></tr>
+<tr><td class="left">M-c</td><td class="left">首字母大写</td><td class="left">capitalize-word</td></tr>
+<tr><td class="left">M-l</td><td class="left">全部小写</td><td class="left">downcase-word</td></tr>
+<tr><td class="left">M-u</td><td class="left">全部大写</td><td class="left">upcase-word</td></tr>
+<tr><td class="left">C-x C-q</td><td class="left">设置/取消只读</td><td class="left">toggle-read-only</td></tr>
+<tr><td class="left">C-x &lt;</td><td class="left">左滚动</td><td class="left">scroll-left</td></tr>
+<tr><td class="left">C-x &gt;</td><td class="left">右滚动</td><td class="left">scroll-right</td></tr>
+<tr><td class="left">C-x ^</td><td class="left">变高</td><td class="left">enlarge-window</td></tr>
+<tr><td class="left">C-x {</td><td class="left">变窄</td><td class="left">shrink-window-horizontally</td></tr>
+<tr><td class="left">C-x }</td><td class="left">变宽</td><td class="left">enlarge-window-horizontally</td></tr>
+<tr><td class="left">C-x +</td><td class="left">使窗口一样大</td><td class="left">balance-windows</td></tr>
+<tr><td class="left">C-x -</td><td class="left">窗口缩小到缓冲区大小</td><td class="left">shrink-window-if-larger-than-buffer</td></tr>
+<tr><td class="left">C-x C-=</td><td class="left">增大字体</td><td class="left">text-scale-adjust</td></tr>
+<tr><td class="left">C-x C&ndash;</td><td class="left">缩小字体</td><td class="left">text-scale-adjust</td></tr>
+<tr><td class="left">C-x C-0</td><td class="left">重置字体</td><td class="left">text-scale-adjust</td></tr>
+<tr><td class="left">C-M-v</td><td class="left">滚动其他窗口</td><td class="left">scroll-other-window</td></tr>
+<tr><td class="left">C-x 4 b</td><td class="left">改变其他窗口缓冲区</td><td class="left">switch-to-buffer-other-window</td></tr>
+<tr><td class="left">C-x 4 f</td><td class="left">改变其他窗口文件</td><td class="left">find-file-other-window</td></tr>
+<tr><td class="left">C-x 5 b</td><td class="left">改变其他窗格缓冲区</td><td class="left">switch-to-buffer-other-frame</td></tr>
+<tr><td class="left">C-x 5 f</td><td class="left">改变其他窗格文件</td><td class="left">find-file-other-frame</td></tr>
+<tr><td class="left">C-x r m</td><td class="left">设置书签</td><td class="left">bookmark-set</td></tr>
+<tr><td class="left">C-x r b</td><td class="left">跳到书签</td><td class="left">bookmark-jump</td></tr>
+<tr><td class="left">C-M-\</td><td class="left">缩进区域</td><td class="left">indent-region</td></tr>
+<tr><td class="left">C-x h</td><td class="left">全选</td><td class="left">mark-whole-buffer</td></tr>
+<tr><td class="left">M-;</td><td class="left">注释</td><td class="left">comment-dwim</td></tr>
+<tr><td class="left">M-j</td><td class="left">下一行注释</td><td class="left">indent-new-comment-line</td></tr>
+<tr><td class="left">M-m</td><td class="left">到本行缩进结束处</td><td class="left">back-to-indentation</td></tr>
+<tr><td class="left">M-^</td><td class="left">连接本行和上行并去除缩进</td><td class="left">delete-indentation</td></tr>
+<tr><td class="left">M-TAB</td><td class="left">补全elisp</td><td class="left">pcomplete</td></tr>
+<tr><td class="left">C-/</td><td class="left">撤消</td><td class="left">undo</td></tr>
+<tr><td class="left">C-g C-/</td><td class="left">重做</td><td class="left">redo</td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 常用命令</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<dl>
+<dt><code>bookmark-rename</code></dt><dd>书签重命名
+</dd>
+<dt><code>bookmark-delete</code></dt><dd>删除书签
+</dd>
+<dt><code>revert-buffer</code></dt><dd>重新加载当前文件
+</dd>
+<dt><code>revert-buffer-with-coding-system</code></dt><dd>
+<p>
+     修改字符编码(utf-8 OR chinese-gbk)
+</p></dd>
+<dt><code>set-buffer-file-coding-system</code></dt><dd>
+<p>
+     以指定编码保存
+</p></dd>
+<dt><code>C-u M-! date -R</code></dt><dd>插入RFC-822数据
+</dd>
+</dl>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <code>compile</code> 编译命令</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 快捷键</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<dl>
+<dt><code>C-x `</code></dt><dd>
+<p>
+     移到下一条出错信息并访问对应源代码
+</p></dd>
+<dt><code>C-u C-x `</code></dt><dd>
+<p>
+     移到下一条出错信息
+</p></dd>
+<dt><code>M-n/p</code></dt><dd>
+<p>
+     移到下一条/上一条出错信息
+</p></dd>
+<dt>SPACE/DEL</dt><dd>
+<p>
+     上卷/下卷屏幕
+</p></dd>
+</dl>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> cedet 插件</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 快捷键</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<dl>
+<dt><code>C-c j</code></dt><dd>跳转
+</dd>
+<dt><code>C-x b</code></dt><dd>返回
+</dd>
+<dt><code>C-c p</code></dt><dd>实现与声明跳转（不太好用）
+</dd>
+</dl>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> artist-mode 模式</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 快捷键</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<p>   在<a href="http://emacser.com/artist-mode.htm">emacs中文网有一篇介绍artist-mode的文章</a> ， 但介绍的是鼠标操作。
+   虽然这个确实很好用， 但本人还是喜欢键盘操作（本人一大爱好：
+   简单的事情复杂化， 勿拍砖）， 所以费了九牛二虎之力找到了下面的
+   快捷键， 以实现， 无鼠标， 纯键盘的artist-mode操作。
+</p><table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">C-c C-a</td><td class="left">Prefix Command</td></tr>
+<tr><td class="left">C-c C-c</td><td class="left">artist-mode-off</td></tr>
+<tr><td class="left">C-c C-a C-b</td><td class="left">artist-submit-bug-report</td></tr>
+<tr><td class="left">C-c C-a C-d</td><td class="left">artist-select-op-erase-char</td></tr>
+<tr><td class="left">C-c C-a C-e</td><td class="left">artist-select-erase-char</td></tr>
+<tr><td class="left">C-c C-a C-f</td><td class="left">artist-select-fill-char</td></tr>
+<tr><td class="left">C-c C-a C-k</td><td class="left">artist-select-op-cut-rectangle</td></tr>
+<tr><td class="left">C-c C-a C-l</td><td class="left">artist-select-line-char</td></tr>
+<tr><td class="left">C-c C-a C-o</td><td class="left">artist-select-operation</td></tr>
+<tr><td class="left">C-c C-a C-r</td><td class="left">artist-toggle-rubber-banding</td></tr>
+<tr><td class="left">C-c C-a C-s</td><td class="left">artist-toggle-borderless-shapes</td></tr>
+<tr><td class="left">C-c C-a C-t</td><td class="left">artist-toggle-trim-line-endings</td></tr>
+<tr><td class="left">C-c C-a C-y</td><td class="left">artist-select-op-paste</td></tr>
+<tr><td class="left">C-c C-a ESC</td><td class="left">Prefix Command</td></tr>
+<tr><td class="left">C-c C-a E</td><td class="left">artist-select-op-erase-rectangle</td></tr>
+<tr><td class="left">C-c C-a L</td><td class="left">artist-select-op-straight-line</td></tr>
+<tr><td class="left">C-c C-a P</td><td class="left">artist-select-op-straight-poly-line</td></tr>
+<tr><td class="left">C-c C-a R</td><td class="left">artist-select-op-square</td></tr>
+<tr><td class="left">C-c C-a S</td><td class="left">artist-select-op-spray-can</td></tr>
+<tr><td class="left">C-c C-a T</td><td class="left">artist-select-op-text-overwrite</td></tr>
+<tr><td class="left">C-c C-a V</td><td class="left">artist-select-op-vaporize-lines</td></tr>
+<tr><td class="left">C-c C-a c</td><td class="left">artist-select-op-circle</td></tr>
+<tr><td class="left">C-c C-a e</td><td class="left">artist-select-op-ellipse</td></tr>
+<tr><td class="left">C-c C-a f</td><td class="left">artist-select-op-flood-fill</td></tr>
+<tr><td class="left">C-c C-a l</td><td class="left">artist-select-op-line</td></tr>
+<tr><td class="left">C-c C-a p</td><td class="left">artist-select-op-poly-line</td></tr>
+<tr><td class="left">C-c C-a r</td><td class="left">artist-select-op-rectangle</td></tr>
+<tr><td class="left">C-c C-a s</td><td class="left">artist-select-op-square</td></tr>
+<tr><td class="left">C-c C-a t</td><td class="left">artist-select-op-text-see-thru</td></tr>
+<tr><td class="left">C-c C-a v</td><td class="left">artist-select-op-vaporize-line</td></tr>
+<tr><td class="left">C-c C-a z</td><td class="left">artist-select-op-spray-set-size</td></tr>
+<tr><td class="left">C-c C-a M-w</td><td class="left">artist-select-op-copy-rectangle</td></tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-08-11</p>
+<p class="author">Author: JKS LIU</p>
+<p class="creator">Org version 7.8.11 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

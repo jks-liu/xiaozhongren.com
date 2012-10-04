@@ -1,10 +1,15 @@
 #+POSTID: 1
 #+DATE: [2012-08-11 Sat 14:18]
-#+OPTIONS: toc:nil num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+OPTIONS: toc:2 num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORY: notes
 #+TAGS: emacs, cedet, artist-mode, 快捷键
 #+DESCRIPTION:
-#+TITLE: Emacs notes
+#+TITLE: Emacs Notes
+
+- Author :: JKS Liu
+- Lincense :: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
+
+文章被托管在：https://github.com/jks-liu/xiaozhongren.com
 
 * 术语中英对照
   - region 区域
