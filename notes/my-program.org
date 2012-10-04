@@ -1,0 +1,220 @@
+#+DATE: [2012-08-26 Sun 10:35]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: notes
+#+TAGS: software
+#+DESCRIPTION:
+#+POSTID: 1
+#+TITLE: My Program
+
+- Author :: JKS Liu
+- Lincense :: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
+
+文章被托管在：https://github.com/jks-liu/xiaozhongren.com
+
+* 前言
+  今天， 把自己使用的软件整理了一下， 方便大家参考。
+
+* 选择program的原则
+
+  #+begin_src dot :file ./dot-svg-pictures/rule-of-choose-program.svg :cmdline -Kdot -Tsvg
+    digraph rule_of_choose_program
+    {
+        size = "6, 6";
+        begin -> is_opensource;
+        is_opensource -> is_ubuntu[style = bold, label = 是, tailport = w];
+        is_opensource -> is_ubuntu[style = dotted, label = 否, tailport = e];
+        is_ubuntu -> is_source[style = bold, label = 是, tailport = w];
+        is_ubuntu -> is_source[style = dotted, label = 否, tailport = e];
+        is_source -> is_cross_platform[style = bold, label = 是, tailport = w];
+        is_source -> is_cross_platform[style = dotted, label = 否, tailport = e];
+        is_cross_platform -> is_free[style = bold, label = 是, tailport = w];
+        is_cross_platform -> is_free[style = dotted, label = 否, tailport = e];
+        is_free -> end;
+        
+        begin[shape = ellipse, label = 开始];
+        is_opensource[shape = diamond, label = 是否开源];
+        is_ubuntu[shape = diamond, label = 是否支持ubuntu];
+        is_source[shape = diamond, label = 是否可获得源代码];
+        is_cross_platform[shape = diamond, label = 是否跨平台];
+        is_free[shape = diamond, label = 是否可以免费使用];
+        end[shape = ellipse, label = 结束];
+    
+        Author[shape = plaintext, label = "Author: jks Liu\nDate: Sun 26-Aug-2012"];
+    }
+  #+end_src
+
+  #+results:
+  [[file:./dot-svg-pictures/rule-of-choose-program.svg]]
+
+  
+  选择program时:
+  - 尽量沿着粗实线选择
+  - 尽量避免使用同一个公司的软件
+  - 尽量避免使用接受审查的软件
+
+  当然， 实际也有例外情况， 比如， 我喜欢使用chrome而不是firefox。
+
+* 标记示例
+  - ** :: 试用中
+  - *u :: ubuntu自带
+  - *w :: 只在M$中使用
+  - *p :: 私有软件
+  - *d :: 尽量不使用
+  - *f :: my favorite, 优先使用
+  - *s :: web site
+  - () :: 在不同标签下重复列出
+    
+* 正文
+  - OS
+    + ubuntu *f
+    + win7
+    + winXP *d
+  - system
+    + gnome-shell
+    + bash *u
+      - tar *u
+      - unrar
+      - unzip
+      - (open)ssh
+      - apt-get *u
+      - git *f
+      - make
+      - aptitude **
+      - autoconf **
+      - automake **
+      - grep
+    + avast *w
+    + mingw *w
+    + cygwin *w
+    + pdfcreator *w
+    + tightvnc
+    + mysql **
+    + apache **
+  - internet
+    + browser
+      - chrome
+      - lynx **
+      - firefox
+    + file transfer
+      putty *w
+      curl
+      filezilla 
+      lftp
+    + p2p
+      - bittorrent **
+      - utorrent **
+      - amule **
+    + mailnag **
+    + storage
+      - dropbox
+      - skydrive
+      - kuaipan *w
+      - github *s
+      - bitbucket *s
+  - editor
+    + emacs *f
+    + libreoffice
+    + gedit *u
+    + latex *f
+  - compiler & debugger
+    + sdcc
+    + gcc
+    + msp430-gcc
+    + python
+    + racket **
+    + mit-scheme **
+    + prolog **
+    + php **
+    + debugger 
+      - mspdebug ** 
+      - gdb **
+  - ide
+    + arduino
+    + processing
+    + code::blocks
+    + keil *w
+    + iar *w*d
+  - math
+    + gnu octave
+    + matlab *w
+  - dictionary
+    + goldendict
+    + lingoes *w
+  - proxy
+    + goagent
+  - audio & vedio
+    + amarok
+    + osd lyrics
+    + mplayer *f
+    + kmplayer *w
+    + foobar2000
+  - audio & vedio editor
+    + blender
+    + lives **
+    + openshot **
+  - design
+    + gimp
+    + eagle
+    + (blender)
+    + autodesk cad/inventor *w
+    + protel/altium design/DXP *w
+    + proteus
+    + ditaa
+    + graphviz
+  - im
+    + gtalk
+    + msn
+    + qq *w
+    + irc
+  - library
+    + RTOS
+      - rt-thread
+    + usb
+      - libusb
+      - hidapi
+    + c++
+      - stl
+      - boost
+      - opengl **
+      - opencv **
+    + processing
+      - ControlP5
+    + arduino
+      - OneWire
+    + scm
+      - StellarisWare® Graphics Library
+    + wxwidgets
+      - wxgtk **
+  - extension
+    + chrome
+      - AdBlock
+      - Google Mail Checker
+      - OpenAttribute
+      - Proxy SwitchSharp
+      - YouTube Downloader: MP3 / HD Video Download **
+      - Chrome Toolbox (by Google)
+      - TV for Google Chrome™ **
+      - Unblock Youku **
+      - Keyboard Navigation **
+    + emacs
+      - yasnippet
+      - cedet
+      - auctex
+      - cdlatex
+      - RefTex
+      - artist-mode
+      - org-mode
+        + [[https://github.com/punchagan/org2blog][org2blog]]
+          - [[https://launchpad.net/xml-rpc-el][xmlrpc]]
+        + [[https://github.com/renard/o-blog][o-blog]] **
+        + (ditaa)
+        + (graphviz)
+        + htmlize
+      - [[https://github.com/dimitri/el-get][el-get]]
+      - git-emacs
+    + libreoffice
+      	macroformatteradp
+
+
+
+#+./dot-svg-pictures/rule-of-choose-program.svg http://www.xiaozhongren.com/wp-content/uploads/2012/10/wpid-rule-of-choose-program.svg

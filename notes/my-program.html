@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>My Program</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="My Program"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="[2012-08-26 Sun 10:35]"/>
+<meta name="author" content="JKS LIU"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">My Program</h1>
+
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">前言</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>  今天， 把自己使用的软件整理了一下， 方便大家参考。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">选择program的原则</h2>
+<div class="outline-text-2" id="text-2">
+
+
+
+
+<p>
+    <img src="./graphviz/rule-of-choose-program.png"  alt="./graphviz/rule-of-choose-program.png" />
+</p>
+<p>
+  选择program时:
+</p><ul>
+<li>尽量沿着粗实线选择
+</li>
+<li>尽量避免使用同一个公司的软件
+</li>
+<li>尽量避免使用接受审查的软件
+</li>
+</ul>
+
+
+<p>
+  当然， 实际也有例外情况， 比如， 我喜欢使用chrome而不是firefox。
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">标记示例</h2>
+<div class="outline-text-2" id="text-3">
+
+<dl>
+<dt>**</dt><dd>试用中
+</dd>
+<dt>*u</dt><dd>ubuntu自带
+</dd>
+<dt>*w</dt><dd>只在M$中使用
+</dd>
+<dt>*p</dt><dd>私有软件
+</dd>
+<dt>*d</dt><dd>尽量不使用
+</dd>
+<dt>*f</dt><dd>my favorite, 优先使用
+</dd>
+<dt>*s</dt><dd>web site
+</dd>
+<dt>()</dt><dd>在不同标签下重复列出
+</dd>
+</dl>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">正文</h2>
+<div class="outline-text-2" id="text-4">
+
+<ul>
+<li>OS
+<ul>
+<li>ubuntu *f
+</li>
+<li>win7
+</li>
+<li>winXP *d
+</li>
+</ul>
+
+</li>
+<li>system
+<ul>
+<li>gnome-shell
+</li>
+<li>bash *u
+<ul>
+<li>tar *u
+</li>
+<li>unrar
+</li>
+<li>unzip
+</li>
+<li>(open)ssh
+</li>
+<li>apt-get *u
+</li>
+<li>git *f
+</li>
+<li>make
+</li>
+<li>aptitude **
+</li>
+<li>autoconf **
+</li>
+<li>automake **
+</li>
+<li>grep
+</li>
+</ul>
+
+</li>
+<li>avast *w
+</li>
+<li>mingw *w
+</li>
+<li>cygwin *w
+</li>
+<li>pdfcreator *w
+</li>
+<li>tightvnc
+</li>
+<li>mysql **
+</li>
+<li>apache **
+</li>
+</ul>
+
+</li>
+<li>internet
+<ul>
+<li>browser
+<ul>
+<li>chrome
+</li>
+<li>lynx **
+</li>
+<li>firefox
+</li>
+</ul>
+
+</li>
+<li>file transfer
+      putty *w
+      curl
+      filezilla 
+      lftp
+</li>
+<li>p2p
+<ul>
+<li>bittorrent **
+</li>
+<li>utorrent **
+</li>
+<li>amule **
+</li>
+</ul>
+
+</li>
+<li>mailnag **
+</li>
+<li>storage
+<ul>
+<li>dropbox
+</li>
+<li>skydrive
+</li>
+<li>kuaipan *w
+</li>
+<li>github *s
+</li>
+<li>bitbucket *s
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+<li>editor
+<ul>
+<li>emacs *f
+</li>
+<li>libreoffice
+</li>
+<li>gedit *u
+</li>
+<li>latex *f
+</li>
+</ul>
+
+</li>
+<li>compiler &amp; debugger
+<ul>
+<li>sdcc
+</li>
+<li>gcc
+</li>
+<li>msp430-gcc
+</li>
+<li>python
+</li>
+<li>racket **
+</li>
+<li>mit-scheme **
+</li>
+<li>prolog **
+</li>
+<li>php **
+</li>
+<li>debugger 
+<ul>
+<li>mspdebug ** 
+</li>
+<li>gdb **
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+<li>ide
+<ul>
+<li>arduino
+</li>
+<li>processing
+</li>
+<li>code::blocks
+</li>
+<li>keil *w
+</li>
+<li>iar *w*d
+</li>
+</ul>
+
+</li>
+<li>math
+<ul>
+<li>gnu octave
+</li>
+<li>matlab *w
+</li>
+</ul>
+
+</li>
+<li>dictionary
+<ul>
+<li>goldendict
+</li>
+<li>lingoes *w
+</li>
+</ul>
+
+</li>
+<li>proxy
+<ul>
+<li>goagent
+</li>
+</ul>
+
+</li>
+<li>audio &amp; vedio
+<ul>
+<li>amarok
+</li>
+<li>osd lyrics
+</li>
+<li>mplayer *f
+</li>
+<li>kmplayer *w
+</li>
+<li>foobar2000
+</li>
+</ul>
+
+</li>
+<li>audio &amp; vedio editor
+<ul>
+<li>blender
+</li>
+<li>lives **
+</li>
+<li>openshot **
+</li>
+</ul>
+
+</li>
+<li>design
+<ul>
+<li>gimp
+</li>
+<li>eagle
+</li>
+<li>(blender)
+</li>
+<li>autodesk cad/inventor *w
+</li>
+<li>protel/altium design/DXP *w
+</li>
+<li>proteus
+</li>
+<li>ditaa
+</li>
+<li>graphviz
+</li>
+</ul>
+
+</li>
+<li>im
+<ul>
+<li>gtalk
+</li>
+<li>msn
+</li>
+<li>qq *w
+</li>
+<li>irc
+</li>
+</ul>
+
+</li>
+<li>library
+<ul>
+<li>RTOS
+<ul>
+<li>rt-thread
+</li>
+</ul>
+
+</li>
+<li>usb
+<ul>
+<li>libusb
+</li>
+<li>hidapi
+</li>
+</ul>
+
+</li>
+<li>c++
+<ul>
+<li>stl
+</li>
+<li>boost
+</li>
+<li>opengl **
+</li>
+<li>opencv **
+</li>
+</ul>
+
+</li>
+<li>processing
+<ul>
+<li>ControlP5
+</li>
+</ul>
+
+</li>
+<li>arduino
+<ul>
+<li>OneWire
+</li>
+</ul>
+
+</li>
+<li>scm
+<ul>
+<li>StellarisWare® Graphics Library
+</li>
+</ul>
+
+</li>
+<li>wxwidgets
+<ul>
+<li>wxgtk **
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+<li>extension
+<ul>
+<li>chrome
+<ul>
+<li>AdBlock
+</li>
+<li>Google Mail Checker
+</li>
+<li>OpenAttribute
+</li>
+<li>Proxy SwitchSharp
+</li>
+<li>YouTube Downloader: MP3 / HD Video Download **
+</li>
+<li>Chrome Toolbox (by Google)
+</li>
+<li>TV for Google Chrome™ **
+</li>
+<li>Unblock Youku **
+</li>
+<li>Keyboard Navigation **
+</li>
+</ul>
+
+</li>
+<li>emacs
+<ul>
+<li>yasnippet
+</li>
+<li>cedet
+</li>
+<li>auctex
+</li>
+<li>cdlatex
+</li>
+<li>RefTex
+</li>
+<li>artist-mode
+</li>
+<li>org-mode
+<ul>
+<li><a href="https://github.com/punchagan/org2blog">org2blog</a>
+<ul>
+<li><a href="https://launchpad.net/xml-rpc-el">xmlrpc</a>
+</li>
+</ul>
+
+</li>
+<li><a href="https://github.com/renard/o-blog">o-blog</a> **
+</li>
+<li>(ditaa)
+</li>
+<li>(graphviz)
+</li>
+<li>htmlize
+</li>
+</ul>
+
+</li>
+<li><a href="https://github.com/dimitri/el-get">el-get</a>
+</li>
+<li>git-emacs
+</li>
+</ul>
+
+</li>
+<li>libreoffice
+        macroformatteradp
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: [2012-08-26 Sun 10:35]</p>
+<p class="author">Author: JKS LIU</p>
+<p class="creator">Org version 7.8.02 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

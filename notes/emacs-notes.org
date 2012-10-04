@@ -1,0 +1,130 @@
+#+POSTID: 1
+#+DATE: [2012-08-11 Sat 14:18]
+#+OPTIONS: toc:nil num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: notes
+#+TAGS: emacs, cedet, artist-mode, 快捷键
+#+DESCRIPTION:
+#+TITLE: Emacs notes
+
+* 术语中英对照
+  - region 区域
+  - buffer 缓冲区
+  - window 窗口
+  - frame 窗格
+
+* 命令参数
+  - =emacs -nw= :: 在字符终端打开
+  - =emacs -q= :: 不加载配置文件
+
+* 一般情况
+** 快捷键
+   | 快捷键    | 描述                     | 命令                                |
+   | Shortcuts | Description              | Command                             |
+   |-----------+--------------------------+-------------------------------------|
+   | C-x 0     | 关闭当前窗口             | delete-window                       |
+   | C-x 1     | 仅保留当前窗口           | delete-other-windows                |
+   | C-x C-x   | 切换mark和point的位置    | exchange-point-and-mark             |
+   | C-u C-@   | 切换mark ring            |                                     |
+   | C-l       | 重新绘制窗口             | recenter-top-bottom                 |
+   | C-t       | 交换point前后的两个字符  | transpose-chars                     |
+   | M-t       | 交换point左右两个单词    | transpose-words                     |
+   | C-x C-t   | 交换本行和上行           | transpose-lines                     |
+   | M-c       | 首字母大写               | capitalize-word                     |
+   | M-l       | 全部小写                 | downcase-word                       |
+   | M-u       | 全部大写                 | upcase-word                         |
+   | C-x C-q   | 设置/取消只读            | toggle-read-only                    |
+   | C-x <     | 左滚动                   | scroll-left                         |
+   | C-x >     | 右滚动                   | scroll-right                        |
+   | C-x ^     | 变高                     | enlarge-window                      |
+   | C-x {     | 变窄                     | shrink-window-horizontally          |
+   | C-x }     | 变宽                     | enlarge-window-horizontally         |
+   | C-x +     | 使窗口一样大             | balance-windows                     |
+   | C-x -     | 窗口缩小到缓冲区大小     | shrink-window-if-larger-than-buffer |
+   | C-x C-=   | 增大字体                 | text-scale-adjust                   |
+   | C-x C--   | 缩小字体                 | text-scale-adjust                   |
+   | C-x C-0   | 重置字体                 | text-scale-adjust                   |
+   | C-M-v     | 滚动其他窗口             | scroll-other-window                 |
+   | C-x 4 b   | 改变其他窗口缓冲区       | switch-to-buffer-other-window       |
+   | C-x 4 f   | 改变其他窗口文件         | find-file-other-window              |
+   | C-x 5 b   | 改变其他窗格缓冲区       | switch-to-buffer-other-frame        |
+   | C-x 5 f   | 改变其他窗格文件         | find-file-other-frame               |
+   | C-x r m   | 设置书签                 | bookmark-set                        |
+   | C-x r b   | 跳到书签                 | bookmark-jump                       |
+   | C-M-\     | 缩进区域                 | indent-region                       |
+   | C-x h     | 全选                     | mark-whole-buffer                   |
+   | M-;       | 注释                     | comment-dwim                        |
+   | M-j       | 下一行注释               | indent-new-comment-line             |
+   | M-m       | 到本行缩进结束处         | back-to-indentation                 |
+   | M-^       | 连接本行和上行并去除缩进 | delete-indentation                  |
+   | M-TAB     | 补全elisp                | pcomplete                           |
+   | C-/       | 撤消                     | undo                                |
+   | C-g C-/   | 重做                     | redo                                |
+
+** 常用命令
+   - =bookmark-rename= :: 书签重命名
+   - =bookmark-delete= :: 删除书签
+   - =revert-buffer= :: 重新加载当前文件
+   - =revert-buffer-with-coding-system= ::
+     修改字符编码(utf-8 OR chinese-gbk)
+   - =set-buffer-file-coding-system= ::
+     以指定编码保存
+   - =C-u M-! date -R= :: 插入RFC-822数据
+
+* =compile= 编译命令
+** 快捷键
+   - =C-x `= ::
+     移到下一条出错信息并访问对应源代码
+   - =C-u C-x `= ::
+     移到下一条出错信息
+   - =M-n/p= ::
+     移到下一条/上一条出错信息
+   - SPACE/DEL ::
+     上卷/下卷屏幕
+
+* cedet 插件
+** 快捷键
+   - =C-c j= :: 跳转
+   - =C-x b= :: 返回
+   - =C-c p= :: 实现与声明跳转（不太好用）
+
+* artist-mode 模式
+** 快捷键
+   在[[http://emacser.com/artist-mode.htm][emacs中文网有一篇介绍artist-mode的文章]] ， 但介绍的是鼠标操作。
+   虽然这个确实很好用， 但本人还是喜欢键盘操作（本人一大爱好：
+   简单的事情复杂化， 勿拍砖）， 所以费了九牛二虎之力找到了下面的
+   快捷键， 以实现， 无鼠标， 纯键盘的artist-mode操作。
+   | C-c C-a     | Prefix Command                      |
+   | C-c C-c     | artist-mode-off                     |
+   |             |                                     |
+   | C-c C-a C-b | artist-submit-bug-report            |
+   | C-c C-a C-d | artist-select-op-erase-char         |
+   | C-c C-a C-e | artist-select-erase-char            |
+   | C-c C-a C-f | artist-select-fill-char             |
+   | C-c C-a C-k | artist-select-op-cut-rectangle      |
+   | C-c C-a C-l | artist-select-line-char             |
+   | C-c C-a C-o | artist-select-operation             |
+   | C-c C-a C-r | artist-toggle-rubber-banding        |
+   | C-c C-a C-s | artist-toggle-borderless-shapes     |
+   | C-c C-a C-t | artist-toggle-trim-line-endings     |
+   | C-c C-a C-y | artist-select-op-paste              |
+   | C-c C-a ESC | Prefix Command                      |
+   | C-c C-a E   | artist-select-op-erase-rectangle    |
+   | C-c C-a L   | artist-select-op-straight-line      |
+   | C-c C-a P   | artist-select-op-straight-poly-line |
+   | C-c C-a R   | artist-select-op-square             |
+   | C-c C-a S   | artist-select-op-spray-can          |
+   | C-c C-a T   | artist-select-op-text-overwrite     |
+   | C-c C-a V   | artist-select-op-vaporize-lines     |
+   | C-c C-a c   | artist-select-op-circle             |
+   | C-c C-a e   | artist-select-op-ellipse            |
+   | C-c C-a f   | artist-select-op-flood-fill         |
+   | C-c C-a l   | artist-select-op-line               |
+   | C-c C-a p   | artist-select-op-poly-line          |
+   | C-c C-a r   | artist-select-op-rectangle          |
+   | C-c C-a s   | artist-select-op-square             |
+   | C-c C-a t   | artist-select-op-text-see-thru      |
+   | C-c C-a v   | artist-select-op-vaporize-line      |
+   | C-c C-a z   | artist-select-op-spray-set-size     |
+   |             |                                     |
+   | C-c C-a M-w | artist-select-op-copy-rectangle     |
+
