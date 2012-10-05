@@ -1,0 +1,29 @@
+#+DATE: [2012-10-05 Fri 15:54]
+#+OPTIONS: toc:2 num:t todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: essays
+#+TAGS: ideology
+#+DESCRIPTION: 
+#+POSTID: 1
+#+TITLE: IDEOLOGY
+
+- Author: jks Liu
+- License: [[http://creativecommons.org/licenses/by-nc-sa/3.0/][CC BY-NC-SA]] [[http://creativecommons.org/licenses/by-nc-sa/3.0/][http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png]]
+
+文章被托管在：https://github.com/jks-liu/xiaozhongren.com
+
+* 辩论
+  不能说特别喜欢， 我也是一个一般喜欢辩论的人。 在我看来， 辩论可以让我门更好地看清事物的本质。
+
+  但有些时候， 辩论会变成争吵， 尤其是当其上升到意识形态的高度。
+
+  辩论的时候， 如果对方说的有道理， 我们会谦虚地接受。 而在意识形态上面， 我们才行一开始就没有打算让步。
+
+* 我不打算再在关于以下的讨论中发言（欢迎补充）
+  - Emacs Vs. Vim
+  - Linux Vs. Windows Vs. X (仅普通桌面用户的使用)
+  - 新兰 Vs. 新哀
+  - Chrome Vs. FireFox Vs. IE(当然， 不包括IE6)
+  - 社_会_主_义 Vs. 资_本_主_义
+  - big-endian Vs. little-endian
+  - Microkernel Vs. Monolithic Kernel
+  - Gnome Vs. KDE Vs. Unity
